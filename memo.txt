@@ -1,1 +1,27 @@
 6章のテストでエラーが出てる
+
+$task = Task::find($task_id);
+TaskController showeditForm $task_idをどこから持ってきているか不明
+
+7章
+folders/{id}/tasks/{task_id}edit 
+Task_idが見つからない。tas_idはどこからきてるのか
+
+バリデーションのための FormRequest クラスとは？
+
+
+array_map() が良く分からない
+
+正
+    return view('tasks/edit', [
+               'task' => $task,
+           ]);
+
+ミス
+    return view('tasks/edit', [
+    'tasks' => $task,
+]);
+
+エラーが出たときコントローラー、ルート、ビューの関係性から原因を探す
+
+
