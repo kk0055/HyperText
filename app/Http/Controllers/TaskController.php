@@ -12,8 +12,10 @@ class TaskController extends Controller
 {
     public function index(int $id)
     {
+           //ログインユーザーに紐づくフォルダのみを取得する
+        $folders = Auth::user()->folders()->get();
        // Folder モデルの all クラスメソッドですべてのフォルダデータをデータベースから取得
-        $folders = Folder::all();
+        // $folders = Folder::all();
           // 選ばれたフォルダを取得する
         $current_folder = Folder::find($id);
         // 選ばれたフォルダに紐づくタスクを取得する
@@ -67,7 +69,8 @@ class TaskController extends Controller
        
        public function edit(int $id, int $task_id, EditTask $request)
        {
-
+           
+       $folders = Auth::user()->folders()->get();
        $task = Task::find($task_id);
 
        $task->title = $request->title;

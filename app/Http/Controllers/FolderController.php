@@ -22,6 +22,7 @@ class FolderController extends Controller
         //入力された値をタイトルに代入
         $folder->title = $request->title;
         
+        Auth::user()->folders()->save($folder);
         //データベースに書き込む
         $folder->save();
 
